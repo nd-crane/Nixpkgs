@@ -12,7 +12,6 @@ buildPythonPackage rec {
   pname = "dvc-studio-client";
   version = "0.3.0";
   format = "pyproject";
-
   disabled = pythonOlder "3.8";
 
   src = fetchFromGitHub {
@@ -23,9 +22,7 @@ buildPythonPackage rec {
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  nativeBuildInputs = [
-    setuptools-scm
-  ];
+  nativeBuildInputs = [setuptools-scm];
 
   propagatedBuildInputs = [
     gitpython
@@ -36,15 +33,12 @@ buildPythonPackage rec {
   # Circular dependency with dvc
   doCheck = false;
 
-  pythonImportsCheck = [
-    "dvc_studio_client"
-  ];
+  pythonImportsCheck = ["dvc_studio_client"];
 
   meta = with lib; {
-    description = "Library for logging machine learning metrics and other metadata in simple file formats";
-    homepage = "https://github.com/iterative/dvclive";
-    changelog = "https://github.com/iterative/scmrepo/releases/tag/${version}";
+    description = "Small library to post data from DVC/DVCLive to Iterative Studio ";
+    homepage = "https://github.com/iterative/dvc-studio-client";
+    changelog = "https://github.com/iterative/dvc-studio-client/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }

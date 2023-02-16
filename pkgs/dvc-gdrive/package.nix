@@ -40,15 +40,12 @@ buildPythonPackage rec {
   # Circular dependency with dvc
   doCheck = false;
 
-  pythonImportsCheck = [
-    "dvc_gdrive"
-  ];
+  pythonImportsCheck = ["dvc_gdrive"];
 
   meta = with lib; {
     description = "gdrive plugin for dvc";
     homepage = "https://github.com/iterative/dvc-gdrive";
     changelog = "https://github.com/iterative/dvc-gdrive/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }

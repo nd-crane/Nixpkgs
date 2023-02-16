@@ -17,14 +17,14 @@
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "dvc";
-  version = "2.43.1";
+  version = "2.45.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "iterative";
     repo = pname;
     rev = version;
-    hash = "sha256-FwJErwAVWFZ95wzBalGi9o+8BTtcGvnC9uQE1qTUaBs=";
+    hash = "sha256-mNT/qyFZj3W13tqLL63ia71YE6cMsYm5m4+Dluw4lGc=";
   };
 
   postPatch = ''

@@ -40,15 +40,12 @@ buildPythonPackage rec {
   # Circular dependency with dvc
   doCheck = false;
 
-  pythonImportsCheck = [
-    "dvc_http"
-  ];
+  pythonImportsCheck = ["dvc_http"];
 
   meta = with lib; {
-    description = "Library for logging machine learning metrics and other metadata in simple file formats";
-    homepage = "https://github.com/iterative/dvclive";
-    changelog = "https://github.com/iterative/scmrepo/releases/tag/${version}";
+    description = "HTTP plugin for DVC";
+    homepage = "https://github.com/iterative/dvc-http";
+    changelog = "https://github.com/iterative/dvc-http/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }

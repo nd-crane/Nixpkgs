@@ -3,22 +3,25 @@
   buildPythonPackage,
   pythonOlder,
   fetchFromGitHub,
+  # Dependencies
   setuptools-scm,
   requests,
   appdirs,
   filelock,
   distro,
-  pytest,
+  # Testing
+  pytestCheckHook,
   pytest-sugar,
   pytest-cov,
+  pytest-benchmark,
   pytest-mock,
   pylint,
   mypy,
-  types-requests,
+  pytest-servers,
 }:
 buildPythonPackage rec {
   pname = "iterative-telemetry";
-  version = "0.0.6";
+  version = "0.0.7";
   format = "pyproject";
   disabled = pythonOlder "3.8";
 
@@ -30,9 +33,7 @@ buildPythonPackage rec {
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  nativeBuildInputs = [
-    setuptools-scm
-  ];
+  nativeBuildInputs = [setuptools-scm];
 
   propagatedBuildInputs = [
     requests
@@ -41,17 +42,32 @@ buildPythonPackage rec {
     distro
   ];
 
+  nativeCheckInputs = [pytestCheckHook];
+
+  checkInputs = [
+    pytest-sugar
+    pytest-cov
+    pytest-benchmark
+    pytest-mock
+    pylint
+    mypy
+    pytest-servers
+  ];
+
+  pythonImportsCheck = ["iterative_telemetry"];
+
+  disabledTests = [];
+  disabledTestPaths = [];
+  pytestFlagsArray = [];
+
   passthru = {
-    optional-dependencies = {
-      tests = [pytest pytest-sugar pytest-cov pytest-mock pylint mypy types-requests];
-    };
+    optional-dependencies = {};
   };
 
   meta = with lib; {
-    description = "Version Control System for Machine Learning Projects";
-    homepage = "https://dvc.org";
-    changelog = "https://github.com/iterative/scmrepo/releases/tag/${version}";
+    description = "Common library to send usage telemetry";
+    homepage = "https://github.com/iterative/telemetry-python";
+    changelog = "https://github.com/iterative/telemetry-python/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }

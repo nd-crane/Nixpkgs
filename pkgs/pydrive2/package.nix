@@ -14,13 +14,6 @@
   tqdm,
   funcy,
   appdirs,
-  # testing
-  pytest,
-  timeout-decorator,
-  flake8,
-  flake8-docstrings,
-  pytest-mock,
-  importlib-resources,
 }:
 buildPythonPackage rec {
   pname = "pydrive2";
@@ -37,9 +30,7 @@ buildPythonPackage rec {
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  nativeBuildInputs = [
-    setuptools-scm
-  ];
+  nativeBuildInputs = [setuptools-scm];
 
   propagatedBuildInputs = [
     google-api-python-client
@@ -63,19 +54,6 @@ buildPythonPackage rec {
         funcy
         appdirs
       ];
-
-      tests =
-        [
-          pytest
-          timeout-decorator
-          funcy
-          flake8
-          flake8-docstrings
-          pytest-mock
-        ]
-        ++ lib.optionals (pythonOlder "3.10") [
-          importlib-resources
-        ];
     };
   };
 

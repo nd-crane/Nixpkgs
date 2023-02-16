@@ -12,10 +12,11 @@
   pathspec,
   asyncssh,
   funcy,
+  shortuuid,
 }:
 buildPythonPackage rec {
   pname = "scmrepo";
-  version = "0.1.6";
+  version = "0.1.11";
   format = "pyproject";
 
   disabled = pythonOlder "3.7";
@@ -24,13 +25,11 @@ buildPythonPackage rec {
     owner = "iterative";
     repo = pname;
     rev = version;
-    hash = "sha256-qSD8FsaJ0wZ8h0mO6qge3Q5fKIbMrONvJraprKVoNDE=";
+    hash = "sha256-FGZHXk1EI8z3ffVL9XGwRvRNNlwmG69OCsDc7If5kqQ=";
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  nativeBuildInputs = [
-    setuptools-scm
-  ];
+  nativeBuildInputs = [setuptools-scm];
 
   propagatedBuildInputs = [
     gitpython
@@ -41,6 +40,7 @@ buildPythonPackage rec {
     pathspec
     asyncssh
     funcy
+    shortuuid
   ];
 
   # Requires a running Docker instance
@@ -55,6 +55,5 @@ buildPythonPackage rec {
     homepage = "https://github.com/iterative/scmrepo";
     changelog = "https://github.com/iterative/scmrepo/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }

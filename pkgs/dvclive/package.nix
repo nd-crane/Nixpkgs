@@ -23,9 +23,7 @@ buildPythonPackage rec {
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  nativeBuildInputs = [
-    setuptools-scm
-  ];
+  nativeBuildInputs = [setuptools-scm];
 
   propagatedBuildInputs = [
     dvc-render
@@ -44,8 +42,7 @@ buildPythonPackage rec {
   meta = with lib; {
     description = "Library for logging machine learning metrics and other metadata in simple file formats";
     homepage = "https://github.com/iterative/dvclive";
-    changelog = "https://github.com/iterative/scmrepo/releases/tag/${version}";
+    changelog = "https://github.com/iterative/dvclive/releases/tag/${version}";
     license = licenses.asl20;
-    maintainers = [];
   };
 }
