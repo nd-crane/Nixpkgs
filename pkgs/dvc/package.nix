@@ -24,7 +24,7 @@ python3.pkgs.buildPythonApplication rec {
     owner = "iterative";
     repo = pname;
     rev = version;
-    hash = "sha256-mNT/qyFZj3W13tqLL63ia71YE6cMsYm5m4+Dluw4lGc=";
+    hash = "sha256-1SdEpbWe/3Vis1nmcLmBWxrhj/1y9HPK3mj8QHdFiSE=";
   };
 
   postPatch = ''
