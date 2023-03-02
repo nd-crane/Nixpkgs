@@ -29,7 +29,7 @@ buildPythonPackage rec {
     owner = "iterative";
     repo = "telemetry-python";
     rev = version;
-    hash = "sha256-ZZgXeX0uvV+4IzMw5z4l2XlI56+bRS4nB1EEpxdexMA=";
+    hash = "sha256-n67nc9a/Qrz2v1EYbHZb+pGhuMDqofUMpgfD/0BwqLM=";
   };
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
